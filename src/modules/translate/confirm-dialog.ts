@@ -10,6 +10,7 @@ export async function showConfirmationDialog(): Promise<{
     translateMode: string;
     translateModel: string;
     enhanceCompatibility: boolean;
+    ocrWorkaround: boolean;
   };
 }> {
   const dialogData: { [key: string | number]: any } = {
@@ -17,8 +18,9 @@ export async function showConfirmationDialog(): Promise<{
     translateMode: getPref("translateMode"),
     translateModel: getPref("translateModel"),
     enhanceCompatibility: getPref("enhanceCompatibility"),
+    ocrWorkaround: getPref("ocrWorkaround"),
   };
-  const dialogHelper = new ztoolkit.Dialog(8, 4)
+  const dialogHelper = new ztoolkit.Dialog(9, 4)
     .addCell(0, 0, {
       tag: "h2",
       properties: {
@@ -166,6 +168,33 @@ export async function showConfirmationDialog(): Promise<{
         width: "200px",
       },
     })
+    .addCell(
+      8,
+      0,
+      {
+        tag: "input",
+        namespace: "html",
+        id: "ocrWorkaround",
+        attributes: {
+          "data-bind": "ocrWorkaround",
+          "data-prop": "checked",
+          type: "checkbox",
+        },
+        properties: { label: getString("confirm-enable-ocr-workaround") },
+      },
+      false,
+    )
+    .addCell(8, 1, {
+      tag: "label",
+      namespace: "html",
+      attributes: {
+        for: "ocrWorkaround",
+      },
+      properties: { innerHTML: getString("confirm-enable-ocr-workaround") },
+      styles: {
+        width: "200px",
+      },
+    })
     .addButton(getString("confirm-yes"), "confirm")
     .addButton(getString("confirm-cancel"), "cancel")
     .setDialogData(dialogData)
@@ -183,6 +212,7 @@ export async function showConfirmationDialog(): Promise<{
           translateMode: string;
           translateModel: string;
           enhanceCompatibility: boolean;
+          ocrWorkaround: boolean;
         },
       };
     } else {

@@ -34,6 +34,7 @@ export async function addTasksToQueue() {
   const translateModel = getPref("translateModel");
   const targetLanguage = getPref("targetLanguage") as Language;
   const enhanceCompatibility = getPref("enhanceCompatibility");
+  const ocrWorkaround = getPref("ocrWorkaround");
   const confirmResult = await showConfirmationDialog();
   if (confirmResult.action === "cancel") {
     return;
@@ -45,6 +46,7 @@ export async function addTasksToQueue() {
     task.targetLanguage = confirmResult.data?.targetLanguage || targetLanguage;
     task.enhanceCompatibility =
       confirmResult.data?.enhanceCompatibility || enhanceCompatibility;
+    task.ocrWorkaround = confirmResult.data?.ocrWorkaround || ocrWorkaround;
   });
   ztoolkit.log(`Adding ${tasksToQueue.length} translation tasks to the queue.`);
   addon.data.task.translationGlobalQueue.push(...tasksToQueue); // Add new tasks
@@ -146,6 +148,7 @@ async function getTranslationTasks(): Promise<TranslationTaskData[]> {
         const translateModel = getPref("translateModel");
         const targetLanguage = getPref("targetLanguage") as Language;
         const enhanceCompatibility = getPref("enhanceCompatibility");
+        const ocrWorkaround = getPref("ocrWorkaround");
         if (filePath && attachmentFilename) {
           tasks.push({
             parentItemId: parentItem?.id,
@@ -158,6 +161,7 @@ async function getTranslationTasks(): Promise<TranslationTaskData[]> {
             translateModel: translateModel,
             translateMode: translateMode,
             enhanceCompatibility: enhanceCompatibility,
+            ocrWorkaround: ocrWorkaround,
           });
         } else {
           ztoolkit.log(

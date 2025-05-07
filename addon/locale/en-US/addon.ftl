@@ -21,6 +21,7 @@ translateModel-glm-4-flash = GLM-4-Flash
 confirm-title = BabelDOC Translate Confirm
 confirm-options = Options
 confirm-enable-compatibility = Enable automatic translation
+confirm-enable-ocr-workaround = Enable OCR temporary solution
 confirm-translate-model = Translation model
 confirm-translate-mode = Translation mode
 confirm-target-language = Target language

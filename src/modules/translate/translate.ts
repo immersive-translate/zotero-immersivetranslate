@@ -32,6 +32,7 @@ export async function translatePDF(
     requestModel: taskData.translateModel,
     enhance_compatibility: taskData.enhanceCompatibility,
     turnstileResponse: "",
+    OCRWorkaround: taskData.ocrWorkaround,
   });
 
   ztoolkit.log(

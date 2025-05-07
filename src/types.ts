@@ -20,6 +20,7 @@ export type TranslationTaskData = {
   translateModel: string;
   translateMode: string;
   enhanceCompatibility: boolean;
+  ocrWorkaround: boolean;
   pdfId?: string;
   status?: Status;
   stage?: string;

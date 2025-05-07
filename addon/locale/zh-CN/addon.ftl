@@ -21,6 +21,7 @@ translateModel-glm-4-flash = 智谱 4 Flash
 confirm-title = BabelDOC 翻译确认
 confirm-options = 选项
 confirm-enable-compatibility = 是否启用兼容模式
+confirm-enable-ocr-workaround = 是否启用 OCR 临时解决方案
 confirm-translate-model = 翻译模型
 confirm-translate-mode = 翻译模式
 confirm-target-language = 目标语言

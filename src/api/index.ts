@@ -59,6 +59,7 @@ type CreateTranslateTaskRequest = {
   requestModel: string;
   enhance_compatibility: boolean;
   turnstileResponse: string;
+  OCRWorkaround: boolean;
 };
 
 export function createTranslateTask(
