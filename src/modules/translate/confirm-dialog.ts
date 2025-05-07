@@ -1,8 +1,9 @@
 import { translateModels, translateModes } from "../../config";
 import { getString } from "../../utils/locale";
-import { getPref } from "../../utils/prefs";
+import { getPref, setPref } from "../../utils/prefs";
 import { getLanguageOptions } from "../language";
 import { Language } from "../language/types";
+
 export async function showConfirmationDialog(): Promise<{
   action: "confirm" | "cancel";
   data?: {
@@ -205,6 +206,11 @@ export async function showConfirmationDialog(): Promise<{
   addon.data.dialog = undefined;
   if (addon.data.alive) {
     if (dialogData._lastButtonId === "confirm") {
+      setPref("targetLanguage", dialogData.targetLanguage);
+      setPref("translateMode", dialogData.translateMode);
+      setPref("translateModel", dialogData.translateModel);
+      setPref("enhanceCompatibility", dialogData.enhanceCompatibility);
+      setPref("ocrWorkaround", dialogData.ocrWorkaround);
       return {
         action: "confirm",
         data: dialogData as {
