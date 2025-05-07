@@ -8,6 +8,7 @@ pref-test-failed = Test failed, Please check your authkey
 prefs-title = Immersive Translate
 item-filed-status = BabelDOC Translation Status
 
+translateMode-all = Bilingual mode & Translation only
 translateMode-dua = Bilingual mode
 translateMode-translation = Translation only
 

@@ -229,9 +229,14 @@ export function updateTaskInList(
 ) {
   if (!addon.data.task.translationTaskList) return;
 
-  const taskIndex = addon.data.task.translationTaskList.findIndex(
-    (task) => task.attachmentId === attachmentId,
-  );
+  // Find the task from the end of the array (most recent task) - simple approach
+  let taskIndex = -1;
+  for (let i = addon.data.task.translationTaskList.length - 1; i >= 0; i--) {
+    if (addon.data.task.translationTaskList[i].attachmentId === attachmentId) {
+      taskIndex = i;
+      break;
+    }
+  }
 
   if (taskIndex !== -1) {
     addon.data.task.translationTaskList[taskIndex] = {

@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 pref("authkey", "");
 pref("targetLanguage", "zh-CN");
-pref("translateMode", "dual");
+pref("translateMode", "all");
 pref("translateModel", "deepseek");
 pref("enhanceCompatibility", false);
 pref("autoTranslate", false);

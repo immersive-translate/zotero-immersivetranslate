@@ -2,6 +2,10 @@ import { getString } from "../utils/locale";
 
 export const translateModes = [
   {
+    label: "translateMode-all",
+    value: "all",
+  },
+  {
     label: "translateMode-dua",
     value: "dual",
   },

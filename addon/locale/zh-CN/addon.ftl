@@ -8,6 +8,7 @@ pref-test-failed = 测试失败，请检查授权码是否正确
 prefs-title = 沉浸式翻译
 item-filed-status = BabelDOC 翻译状态
 
+translateMode-all = 双语模式 & 译文模式
 translateMode-dua = 双语模式
 translateMode-translation = 仅译文
 
