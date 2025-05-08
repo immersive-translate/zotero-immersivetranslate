@@ -6,6 +6,7 @@ import {
 import { registerShortcuts } from "./modules/shortcuts";
 import { createZToolkit } from "./utils/ztoolkit";
 import { registerMenu, registerWindowMenu } from "./modules/menu";
+import { registerToolbar } from "./modules/toolbar";
 import { registerNotifier } from "./modules/notify";
 import {
   addTasksToQueue,
@@ -82,6 +83,8 @@ async function onMainWindowLoad(win: _ZoteroTypes.MainWindow): Promise<void> {
   registerMenu();
 
   registerWindowMenu();
+
+  registerToolbar();
 
   await Zotero.Promise.delay(1000);
 
