@@ -19,7 +19,7 @@ export async function request({
   responseType?: "json" | "text" | "blob" | "arraybuffer";
 }) {
   try {
-    const URL = addon.data.env === "development" ? BASE_URL : BASE_URL;
+    const URL = addon.data.env === "development" ? BASE_URL_TEST : BASE_URL;
     const isCustomUrl = url.startsWith("http");
     const queryParams = new URLSearchParams(params);
     const urlWithParams = `${URL}${url}?${queryParams.toString()}`;
