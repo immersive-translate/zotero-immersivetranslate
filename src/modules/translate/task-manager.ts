@@ -6,6 +6,7 @@ import { Status, TranslationTaskData } from "../../types";
 import { getTranslateModeLabel, getTranslateModelLabel } from "../../config";
 import { Language } from "../language/types";
 import { nativeLangMap } from "../language";
+import { showDialog } from "../../utils/dialog";
 
 /**
  * 显示翻译任务列表的弹窗
@@ -117,7 +118,9 @@ export async function showTaskManager() {
           const task = tasks[0];
           if (task.pdfId) {
             new ztoolkit.Clipboard().addText(task.pdfId, "text/unicode").copy();
-            ztoolkit.getGlobal("alert")(getString("task-copy-success"));
+            showDialog({
+              title: getString("task-copy-success")
+            })
           }
         }
         return true;
@@ -150,10 +153,14 @@ export async function showTaskManager() {
             Zotero.Reader.open(resultAttachment.id);
           }
         } else {
-          ztoolkit.getGlobal("alert")(getString("task-uncomplete"));
+          showDialog({
+            title: getString("task-uncomplete")
+          })
         }
       } else {
-        ztoolkit.getGlobal("alert")(getString("task-select-tip"));
+        showDialog({
+          title: getString("task-select-tip")
+        })
       }
     });
 
@@ -166,10 +173,14 @@ export async function showTaskManager() {
         const task = tasks[0];
         if (task.pdfId) {
           new ztoolkit.Clipboard().addText(task.pdfId, "text/unicode").copy();
-          ztoolkit.getGlobal("alert")(getString("task-copy-success"));
+          showDialog({
+            title: getString("task-copy-success")
+          })
         }
       } else {
-        ztoolkit.getGlobal("alert")(getString("task-select-tip"));
+        showDialog({
+          title: getString("task-select-tip")
+        })
       }
     });
     cancelButton.addEventListener("click", (ev) => {
@@ -179,12 +190,18 @@ export async function showTaskManager() {
         if (task.status === "queued") {
           cancelTask(task);
           refresh();
-          ztoolkit.getGlobal("alert")(getString("task-cancel-success"));
+          showDialog({
+            title: getString("task-cancel-success")
+          })
         } else {
-          ztoolkit.getGlobal("alert")(getString("task-cancel-tip"));
+          showDialog({
+            title: getString("task-cancel-tip")
+          })
         }
       } else {
-        ztoolkit.getGlobal("alert")(getString("task-select-tip"));
+        showDialog({
+          title: getString("task-select-tip")
+        })
       }
     });
     createWindowBoundInterval(

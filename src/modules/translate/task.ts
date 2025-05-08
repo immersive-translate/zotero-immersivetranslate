@@ -6,6 +6,7 @@ import { showConfirmationDialog } from "./confirm-dialog";
 import { translatePDF } from "./translate";
 import { TranslationTaskMonitor } from "./task-monitor";
 import { getString } from "../../utils/locale";
+import { showDialog } from "../../utils/dialog";
 import { Language } from "../language/types";
 
 const ATTR_TAG = "BabelDOC_translated";
@@ -27,7 +28,9 @@ export async function addTasksToQueue() {
 
   if (tasksToQueue.length === 0) {
     ztoolkit.log("No valid PDF attachments found to add to the queue.");
-    ztoolkit.getGlobal("alert")(getString("task-no-pdf"));
+    showDialog({
+      title: getString("task-no-pdf")
+    })
     return;
   }
   const translateMode = getPref("translateMode");

@@ -1,6 +1,7 @@
 import { config } from "../../package.json";
 import { getString } from "../utils/locale";
 import { getPref, setPref } from "../utils/prefs";
+import { showDialog } from "../utils/dialog";
 import { getLanguages, nativeLangMap } from "./language";
 import { translateModes, translateModels } from "../config";
 
@@ -163,13 +164,17 @@ function bindPrefEvents() {
       `#zotero-prefpane-${config.addonRef}-test-button`,
     )
     ?.addEventListener("command", async (e: Event) => {
-      ztoolkit.log(e);
       try {
         const url = await addon.api.getPdfUploadUrl();
-        Zotero.getMainWindow().alert(getString("pref-test-success"));
+        showDialog({
+          title: getString("pref-test-success"),
+        });
       } catch (error) {
         ztoolkit.log(error);
-        Zotero.getMainWindow().alert(getString("pref-test-failed"));
+        showDialog({
+          title: getString("pref-test-failed"),
+          message: getString("pref-test-failed-description"),
+        });
       }
     });
 }

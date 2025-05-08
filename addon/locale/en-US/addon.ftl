@@ -3,7 +3,8 @@ startup-finish = Addon is ready
 menuitem-translate = Translate with ImmersiveTranslate
 menuView-tasks = View Immersive translate tasks
 pref-test-success = Test successfully
-pref-test-failed = Test failed, Please check your authkey
+pref-test-failed = Test failed
+pref-test-failed-description = Please check your authkey
 
 prefs-title = Immersive Translate
 item-filed-status = Translation Status
