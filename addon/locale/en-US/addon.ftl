@@ -21,8 +21,10 @@ translateModel-glm-4-flash = GLM-4-Flash
 
 confirm-title = Translate Confirm
 confirm-options = Options
-confirm-enable-compatibility = Enable automatic translation
+confirm-enable-compatibility = Enable compatibility mode
+confirm-enable-compatibility-description = Enabling this will improve PDF compatibility, but will increase the output file size.
 confirm-enable-ocr-workaround = Enable OCR temporary solution
+confirm-enable-ocr-workaround-description = When your scanned/image-based PDF file has undergone OCR processing and is in white text on a black background, you can try enabling the OCR version of the temporary solution. This solution will add white rectangular blocks below the translated text to cover the original content.
 confirm-translate-model = Translation model
 confirm-translate-mode = Translation mode
 confirm-target-language = Target language

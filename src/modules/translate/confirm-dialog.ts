@@ -21,7 +21,7 @@ export async function showConfirmationDialog(): Promise<{
     enhanceCompatibility: getPref("enhanceCompatibility"),
     ocrWorkaround: getPref("ocrWorkaround"),
   };
-  const dialogHelper = new ztoolkit.Dialog(9, 4)
+  const dialogHelper = new ztoolkit.Dialog(11, 4)
     .addCell(0, 0, {
       tag: "h2",
       properties: {
@@ -169,8 +169,18 @@ export async function showConfirmationDialog(): Promise<{
         width: "200px",
       },
     })
+    .addCell(8, 0, {
+      tag: "p",
+      namespace: "html",
+      properties: {
+        innerHTML: getString("confirm-enable-compatibility-description"),
+      },
+      styles: {
+        width: "400px",
+      },
+    })
     .addCell(
-      8,
+      9,
       0,
       {
         tag: "input",
@@ -185,7 +195,7 @@ export async function showConfirmationDialog(): Promise<{
       },
       false,
     )
-    .addCell(8, 1, {
+    .addCell(9, 1, {
       tag: "label",
       namespace: "html",
       attributes: {
@@ -194,6 +204,16 @@ export async function showConfirmationDialog(): Promise<{
       properties: { innerHTML: getString("confirm-enable-ocr-workaround") },
       styles: {
         width: "200px",
+      },
+    })
+    .addCell(10, 0, {
+      tag: "p",
+      namespace: "html",
+      properties: {
+        innerHTML: getString("confirm-enable-ocr-workaround-description"),
+      },
+      styles: {
+        width: "400px",
       },
     })
     .addButton(getString("confirm-yes"), "confirm")
