@@ -1,5 +1,12 @@
 import { request } from "./request";
 
+export function checkAuthKey(params: { apiKey: string }): Promise<boolean> {
+  return request({
+    url: `/check-key`,
+    params,
+  });
+}
+
 export type UploadUrlResponse = {
   result: {
     objectKey: string;
@@ -157,6 +164,7 @@ export function getRecordList(
 }
 
 export default {
+  checkAuthKey,
   getPdfUploadUrl,
   createTranslateTask,
   getTranslatePdfCount,

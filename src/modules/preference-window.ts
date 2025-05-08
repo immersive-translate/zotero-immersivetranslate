@@ -165,10 +165,19 @@ function bindPrefEvents() {
     )
     ?.addEventListener("command", async (e: Event) => {
       try {
-        const url = await addon.api.getPdfUploadUrl();
-        showDialog({
-          title: getString("pref-test-success"),
+        const result = await addon.api.checkAuthKey({
+          apiKey: getPref("authkey"),
         });
+        if (result) {
+          showDialog({
+            title: getString("pref-test-success"),
+          });
+        } else {
+          showDialog({
+            title: getString("pref-test-failed"),
+            message: getString("pref-test-failed-description"),
+          });
+        }
       } catch (error) {
         ztoolkit.log(error);
         showDialog({
