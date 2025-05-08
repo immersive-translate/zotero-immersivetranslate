@@ -119,8 +119,8 @@ export async function showTaskManager() {
           if (task.pdfId) {
             new ztoolkit.Clipboard().addText(task.pdfId, "text/unicode").copy();
             showDialog({
-              title: getString("task-copy-success")
-            })
+              title: getString("task-copy-success"),
+            });
           }
         }
         return true;
@@ -154,13 +154,13 @@ export async function showTaskManager() {
           }
         } else {
           showDialog({
-            title: getString("task-uncomplete")
-          })
+            title: getString("task-uncomplete"),
+          });
         }
       } else {
         showDialog({
-          title: getString("task-select-tip")
-        })
+          title: getString("task-select-tip"),
+        });
       }
     });
 
@@ -174,13 +174,13 @@ export async function showTaskManager() {
         if (task.pdfId) {
           new ztoolkit.Clipboard().addText(task.pdfId, "text/unicode").copy();
           showDialog({
-            title: getString("task-copy-success")
-          })
+            title: getString("task-copy-success"),
+          });
         }
       } else {
         showDialog({
-          title: getString("task-select-tip")
-        })
+          title: getString("task-select-tip"),
+        });
       }
     });
     cancelButton.addEventListener("click", (ev) => {
@@ -191,17 +191,17 @@ export async function showTaskManager() {
           cancelTask(task);
           refresh();
           showDialog({
-            title: getString("task-cancel-success")
-          })
+            title: getString("task-cancel-success"),
+          });
         } else {
           showDialog({
-            title: getString("task-cancel-tip")
-          })
+            title: getString("task-cancel-tip"),
+          });
         }
       } else {
         showDialog({
-          title: getString("task-select-tip")
-        })
+          title: getString("task-select-tip"),
+        });
       }
     });
     createWindowBoundInterval(

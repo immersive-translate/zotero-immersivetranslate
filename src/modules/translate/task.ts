@@ -29,8 +29,8 @@ export async function addTasksToQueue() {
   if (tasksToQueue.length === 0) {
     ztoolkit.log("No valid PDF attachments found to add to the queue.");
     showDialog({
-      title: getString("task-no-pdf")
-    })
+      title: getString("task-no-pdf"),
+    });
     return;
   }
   const translateMode = getPref("translateMode");
