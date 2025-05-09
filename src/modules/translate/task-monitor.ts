@@ -1,4 +1,5 @@
 import { TranslationTaskData } from "../../types";
+import { getPref } from "../../utils/prefs";
 import { updateTaskInList } from "./task-manager";
 
 const ATTR_TAG = "BabelDOC_translated";
@@ -312,6 +313,10 @@ async function downloadAndProcessPdf({
   );
 
   await attachment.saveTx();
+
+  if (getPref("autoOpenPDF")) {
+    Zotero.Reader.open(attachment.id);
+  }
 
   try {
     await IOUtils.remove(tempPath);

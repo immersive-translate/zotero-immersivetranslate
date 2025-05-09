@@ -12,6 +12,8 @@ pref-translate-model = 翻译模型
 pref-translate-mode = 翻译模式
 pref-target-language = 目标语言
 pref-test-button = 测试
+pref-enable-autoOpenPDF =
+    .label = 自动打开翻译后的 PDF
 
 pref-imt-site = 在沉浸式翻译官网个人主页获取授权码
 

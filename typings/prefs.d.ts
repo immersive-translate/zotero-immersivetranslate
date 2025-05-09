@@ -13,6 +13,7 @@ declare namespace _ZoteroTypes {
       "translateModel": string;
       "enhanceCompatibility": boolean;
       "autoTranslate": boolean;
+      "autoOpenPDF": boolean;
       "ocrWorkaround": boolean;
     };
   }

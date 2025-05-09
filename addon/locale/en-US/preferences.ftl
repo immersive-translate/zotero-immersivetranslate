@@ -12,6 +12,8 @@ pref-translate-model = Translation model
 pref-translate-mode = Translation mode
 pref-target-language = Target language
 pref-test-button = Test
+pref-enable-autoOpenPDF =
+    .label = Automatically open translated PDF
 
 pref-imt-site = Get your authorization key from your personal page on Immersive Translate website
 

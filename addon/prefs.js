@@ -5,4 +5,5 @@ pref("translateMode", "dual");
 pref("translateModel", "deepseek");
 pref("enhanceCompatibility", false);
 pref("autoTranslate", false);
+pref("autoOpenPDF", true);
 pref("ocrWorkaround", false);
