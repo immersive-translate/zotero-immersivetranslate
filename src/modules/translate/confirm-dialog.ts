@@ -1,4 +1,4 @@
-import { translateModels, translateModes } from "../../config";
+import { getAvailableTranslateModels, translateModes, getTranslateModelLabel } from "../../config";
 import { getString } from "../../utils/locale";
 import { getPref, setPref } from "../../utils/prefs";
 import { getLanguageOptions } from "../language";
@@ -126,12 +126,12 @@ export async function showConfirmationDialog(): Promise<{
           "data-bind": "translateModel",
           "data-prop": "value",
         },
-        children: translateModels.map(
+        children: getAvailableTranslateModels().map(
           (model: { value: string; label: string }) => ({
             tag: "option",
             properties: {
               value: model.value,
-              innerHTML: getString(model.label),
+              innerHTML: getTranslateModelLabel(model.value),
             },
           }),
         ),

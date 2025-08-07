@@ -19,6 +19,7 @@ translateModel-glm-4-plus = GLM-4-Plus
 translateModel-OpenAI = OpenAI
 translateModel-Gemini = Gemini
 translateModel-glm-4-flash = GLM-4-Flash
+translateModel-custom = Custom API
 
 confirm-title = Translate Confirm
 confirm-options = Options

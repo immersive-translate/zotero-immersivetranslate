@@ -1,6 +1,9 @@
 import type { TranslationTaskData } from "../../types";
 import { updateTaskInList } from "./task-manager";
 import { TranslationTaskMonitor } from "./task-monitor";
+import { isCustomAPIModel, validateCustomAPIConfig } from "../../api/custom-api";
+import { CUSTOM_MODEL_VALUE } from "../../config";
+import { getPref } from "../../utils/prefs";
 
 export async function translatePDF(
   taskData: TranslationTaskData,
@@ -23,13 +26,25 @@ export async function translatePDF(
   }
   ztoolkit.log(`Upload successful for: ${taskData.attachmentFilename}`);
 
+  // --- Determine the actual model name to send to the API ---
+  let requestModel = taskData.translateModel;
+  if (isCustomAPIModel(taskData.translateModel)) {
+    // For custom API, use the user-configured model name
+    const customModelName = getPref("customModelName");
+    if (!customModelName) {
+      throw new Error("Custom model name is not configured");
+    }
+    requestModel = customModelName;
+    ztoolkit.log(`Using custom model: ${customModelName} for translation`);
+  }
+
   // --- Create Task ---
   const pdfId = await addon.api.createTranslateTask({
     objectKey: uploadInfo.result.objectKey,
     pdfOptions: { conversion_formats: { html: true } },
     fileName: taskData.attachmentFilename,
     targetLanguage: taskData.targetLanguage,
-    requestModel: taskData.translateModel,
+    requestModel: requestModel,
     enhance_compatibility: taskData.enhanceCompatibility,
     turnstileResponse: "",
     OCRWorkaround: taskData.ocrWorkaround,

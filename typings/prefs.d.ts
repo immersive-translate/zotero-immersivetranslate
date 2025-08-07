@@ -17,6 +17,10 @@ declare namespace _ZoteroTypes {
       "ocrWorkaround": boolean;
       "fakeUserId": string;
       "enableShortcuts": boolean;
+      "useCustomAPI": boolean;
+      "customAPIEndpoint": string;
+      "customAPIKey": string;
+      "customModelName": string;
     };
   }
 }

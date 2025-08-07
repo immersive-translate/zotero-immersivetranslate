@@ -32,3 +32,12 @@ pref-about-docs =
     .value = Documentation
 pref-about-version =
     .value = { $name } version { $version } Build { $time }
+
+pref-custom-api-settings = Custom API
+pref-use-custom-api =
+    .label = Use custom API for translation
+pref-custom-api-endpoint = API Endpoint
+pref-custom-api-key = API Key
+pref-custom-model-name = Model Name
+pref-test-custom-api-button = Test Custom API
+pref-custom-api-description = Configure custom API endpoints like Azure OpenAI, OpenAI, or other compatible APIs for translation. Note: Custom APIs currently support text translation only, not full PDF processing.

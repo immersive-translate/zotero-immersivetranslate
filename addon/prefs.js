@@ -9,3 +9,7 @@ pref("autoOpenPDF", true);
 pref("ocrWorkaround", false);
 pref("fakeUserId", "");
 pref("enableShortcuts", true);
+pref("useCustomAPI", false);
+pref("customAPIEndpoint", "");
+pref("customAPIKey", "");
+pref("customModelName", "");
