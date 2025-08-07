@@ -1,4 +1,5 @@
 import { getString } from "../utils/locale";
+import { getPref } from "../utils/prefs";
 
 export const translateModes = [
   {
@@ -42,7 +43,27 @@ export const translateModels = [
   },
 ];
 
+export const CUSTOM_MODEL_VALUE = "custom-api";
+
+export function getAvailableTranslateModels() {
+  const models = [...translateModels];
+  
+  if (getPref("useCustomAPI")) {
+    models.push({
+      label: "translateModel-custom",
+      value: CUSTOM_MODEL_VALUE,
+    });
+  }
+  
+  return models;
+}
+
 export function getTranslateModelLabel(model: string) {
+  if (model === CUSTOM_MODEL_VALUE) {
+    const customName = getPref("customModelName");
+    return customName || getString("translateModel-custom");
+  }
+  
   const label = translateModels.find((m) => m.value === model)?.label;
   if (!label) {
     return "";

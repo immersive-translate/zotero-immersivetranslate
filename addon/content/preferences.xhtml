@@ -90,6 +90,64 @@
     </vbox>
   </groupbox>
 
+  <groupbox id="__addonRef__-custom-api-group">
+    <label><html:h2 data-l10n-id="pref-custom-api-settings"></html:h2></label>
+    <vbox>
+      <checkbox
+        id="zotero-prefpane-__addonRef__-use-custom-api"
+        native="true"
+        preference="useCustomAPI"
+        data-l10n-id="pref-use-custom-api"
+      />
+    </vbox>
+    <vbox id="__addonRef__-custom-api-details" style="display: none;">
+      <hbox align="center">
+        <html:label
+          for="zotero-prefpane-__addonRef__-custom-api-endpoint"
+          data-l10n-id="pref-custom-api-endpoint"
+        ></html:label>
+        <html:input
+          type="text"
+          id="zotero-prefpane-__addonRef__-custom-api-endpoint"
+          preference="customAPIEndpoint"
+          placeholder="https://api.openai.com/v1/chat/completions"
+        ></html:input>
+      </hbox>
+      <hbox align="center">
+        <html:label
+          for="zotero-prefpane-__addonRef__-custom-api-key"
+          data-l10n-id="pref-custom-api-key"
+        ></html:label>
+        <html:input
+          type="password"
+          id="zotero-prefpane-__addonRef__-custom-api-key"
+          preference="customAPIKey"
+        ></html:input>
+      </hbox>
+      <hbox align="center">
+        <html:label
+          for="zotero-prefpane-__addonRef__-custom-model-name"
+          data-l10n-id="pref-custom-model-name"
+        ></html:label>
+        <html:input
+          type="text"
+          id="zotero-prefpane-__addonRef__-custom-model-name"
+          preference="customModelName"
+          placeholder="gpt-4o"
+        ></html:input>
+      </hbox>
+      <hbox align="center">
+        <button
+          id="zotero-prefpane-__addonRef__-test-custom-api-button"
+          data-l10n-id="pref-test-custom-api-button"
+        ></button>
+      </hbox>
+      <vbox>
+        <p data-l10n-id="pref-custom-api-description" />
+      </vbox>
+    </vbox>
+  </groupbox>
+
   <groupbox>
     <label><html:h2 data-l10n-id="pref-shortcuts-settings"></html:h2></label>
     <vbox>

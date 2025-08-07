@@ -33,3 +33,12 @@ pref-about-docs =
     .value = 文档
 pref-about-version =
     .value = { $name } 版本 { $version } Build { $time }
+
+pref-custom-api-settings = 自定义 API
+pref-use-custom-api =
+    .label = 使用自定义 API 进行翻译
+pref-custom-api-endpoint = API 端点
+pref-custom-api-key = API 密钥
+pref-custom-model-name = 模型名称
+pref-test-custom-api-button = 测试自定义 API
+pref-custom-api-description = 配置自定义 API 端点，如 Azure OpenAI、OpenAI 或其他兼容 API 进行翻译。注意：自定义 API 目前仅支持文本翻译，不支持完整 PDF 处理。

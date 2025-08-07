@@ -19,6 +19,7 @@ translateModel-glm-4-plus = 智谱 4 Plus
 translateModel-OpenAI = OpenAI
 translateModel-Gemini = Gemini
 translateModel-glm-4-flash = 智谱 4 Flash
+translateModel-custom = 自定义 API
 
 confirm-title = 翻译确认
 confirm-options = 选项
