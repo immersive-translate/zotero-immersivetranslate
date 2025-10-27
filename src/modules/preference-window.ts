@@ -9,8 +9,10 @@ import {
   dualModeOptions,
   fontFamilyOptions,
   ocrWorkaroundOptions,
+  translateModels_CN,
 } from "../config";
 import type { Language } from "./language/types";
+import { checkIsCN } from "../utils/cn";
 
 export function registerPrefs() {
   Zotero.PreferencePanes.register({
@@ -117,6 +119,9 @@ function buildPrefsPane() {
     doc.querySelector(`#${config.addonRef}-translate-mode-placeholder`)!,
   );
 
+  const isCN = checkIsCN();
+  const real_translateModels = isCN ? translateModels_CN : translateModels;
+
   ztoolkit.UI.replaceElement(
     {
       tag: "menulist",
@@ -131,7 +136,7 @@ function buildPrefsPane() {
       children: [
         {
           tag: "menupopup",
-          children: translateModels.map((item) => {
+          children: real_translateModels.map((item) => {
             return {
               tag: "menuitem",
               attributes: {

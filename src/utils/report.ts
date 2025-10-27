@@ -1,7 +1,12 @@
 import { request } from "../api/request";
 import { getInstallInfo } from "./fake_user";
-import { getGMurls, SELF_SERVICE_COLLECT_URL } from "./const";
+import {
+  getGMurls,
+  SELF_SERVICE_COLLECT_URL,
+  SELF_SERVICE_COLLECT_URL_CN,
+} from "./const";
 import { version } from "../../package.json";
+import { checkIsCN } from "./cn";
 
 export interface EventInterface {
   name: string;
@@ -47,8 +52,13 @@ function reportToSelfService(fakeUserId: string, events: EventInterface[]) {
       };
       const nonce = Date.now() + (Math.random() * 100).toFixed(0);
 
+      const isCN = checkIsCN();
+      const reportUrl = isCN
+        ? SELF_SERVICE_COLLECT_URL_CN
+        : SELF_SERVICE_COLLECT_URL;
+
       request({
-        url: SELF_SERVICE_COLLECT_URL,
+        url: reportUrl,
         method: "POST",
         responseType: "text",
         fullFillOnError: true,
@@ -75,6 +85,8 @@ async function formatEvents(options: { events: EventInterface[] }) {
     if (version) {
       currentParam.version = version;
     }
+    const isCN = checkIsCN();
+    currentParam.x_char_arg10 = isCN ? "cn" : "com";
     return {
       ...event,
       params: currentParam,

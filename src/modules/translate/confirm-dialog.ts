@@ -1,7 +1,12 @@
-import { translateModels, translateModes } from "../../config";
+import {
+  translateModels,
+  translateModels_CN,
+  translateModes,
+} from "../../config";
 import { getString } from "../../utils/locale";
 import { getPref, setPref } from "../../utils/prefs";
 import { getLanguageOptions } from "../language";
+import { checkIsCN } from "../../utils/cn";
 import type { Language } from "../language/types";
 
 export async function showConfirmationDialog(): Promise<{
@@ -17,6 +22,9 @@ export async function showConfirmationDialog(): Promise<{
     translateMode: getPref("translateMode"),
     translateModel: getPref("translateModel"),
   };
+  const isCN = checkIsCN();
+  const real_translateModels = isCN ? translateModels_CN : translateModels;
+
   const dialogHelper = new ztoolkit.Dialog(11, 4)
     .addCell(0, 0, {
       tag: "h2",
@@ -121,7 +129,7 @@ export async function showConfirmationDialog(): Promise<{
           "data-bind": "translateModel",
           "data-prop": "value",
         },
-        children: translateModels.map(
+        children: real_translateModels.map(
           (model: { value: string; label: string }) => ({
             tag: "option",
             properties: {

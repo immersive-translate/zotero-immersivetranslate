@@ -1,5 +1,21 @@
 import { getPref } from "../utils/prefs";
-import { BASE_URL_TEST, BASE_URL } from "../utils/const";
+import {
+  BASE_URL_TEST,
+  BASE_URL,
+  BASE_URL_TEST_CN,
+  BASE_URL_CN,
+} from "../utils/const";
+import { checkIsCN } from "../utils/cn";
+
+function getBaseUrl() {
+  const isCN = checkIsCN();
+  const isDev = addon.data.env === "development";
+  if (isDev) {
+    return isCN ? BASE_URL_TEST_CN : BASE_URL_TEST;
+  } else {
+    return isCN ? BASE_URL_CN : BASE_URL;
+  }
+}
 
 export async function request({
   url,
@@ -71,7 +87,7 @@ export async function request({
 
   while (retryCount <= retries) {
     try {
-      const URL = addon.data.env === "development" ? BASE_URL_TEST : BASE_URL;
+      const URL = getBaseUrl();
       const isCustomUrl = url.startsWith("http");
       const queryParams = new URLSearchParams(params);
 

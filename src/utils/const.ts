@@ -1,4 +1,5 @@
 export const HOST_NAME = "immersivetranslate.com";
+export const HOST_NAME_CN = "immersivetranslate.cn";
 export const APP_SITE_URL = "https://app.immersivetranslate.com";
 export const TEST_APP_SITE_URL = "https://test-app.immersivetranslate.com";
 
@@ -10,7 +11,11 @@ const NEW_GA_API_SECRET = __NEW_GA_API_SECRET__ || "";
 export const BASE_URL_TEST = `https://test-api2.${HOST_NAME}/zotero`;
 export const BASE_URL = `https://api2.${HOST_NAME}/zotero`;
 
+export const BASE_URL_TEST_CN = `https://test-api2.${HOST_NAME_CN}/zotero`;
+export const BASE_URL_CN = `https://api2.${HOST_NAME_CN}/zotero`;
+
 export const SELF_SERVICE_COLLECT_URL = `https://analytics.${HOST_NAME}/collect`;
+export const SELF_SERVICE_COLLECT_URL_CN = `https://analytics.${HOST_NAME_CN}/collect`;
 
 export function getGMurls() {
   if (!NEW_GA_MEASUREMENT_ID || NEW_GA_MEASUREMENT_ID === "undefined") {

@@ -46,6 +46,29 @@ export const translateModels = [
   },
 ];
 
+export const translateModels_CN = [
+  {
+    label: "translateModel-qwen",
+    value: "qwen-1",
+  },
+  {
+    label: "translateModel-deepseek",
+    value: "deepseek",
+  },
+  {
+    label: "translateModel-doubao",
+    value: "doubao",
+  },
+  {
+    label: "translateModel-glm-4-plus",
+    value: "glm-4-plus",
+  },
+  {
+    label: "translateModel-glm-4-flash",
+    value: "glm-4-flash",
+  },
+];
+
 export const ocrWorkaroundOptions = [
   {
     label: "auto",
