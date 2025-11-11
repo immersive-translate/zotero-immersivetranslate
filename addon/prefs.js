@@ -2,7 +2,7 @@
 pref("authkey", "");
 pref("targetLanguage", "zh-CN");
 pref("translateMode", "dual");
-pref("translateModel", "qwen-1");
+pref("translateModel", "kimi+qwen");
 pref("enhanceCompatibility", false);
 pref("autoTranslate", false);
 pref("autoOpenPDF", true);

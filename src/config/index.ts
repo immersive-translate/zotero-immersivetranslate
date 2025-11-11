@@ -17,6 +17,14 @@ export const translateModes = [
 
 export const translateModels = [
   {
+    label: "translateModel-kimi-qwen",
+    value: "kimi+qwen",
+  },
+  {
+    label: "translateModel-kimi-deepseek",
+    value: "kimi+deepseek",
+  },
+  {
     label: "translateModel-qwen",
     value: "qwen-1",
   },
@@ -47,6 +55,14 @@ export const translateModels = [
 ];
 
 export const translateModels_CN = [
+  {
+    label: "translateModel-kimi-qwen",
+    value: "kimi+qwen",
+  },
+  {
+    label: "translateModel-kimi-deepseek",
+    value: "kimi+deepseek",
+  },
   {
     label: "translateModel-qwen",
     value: "qwen-1",

@@ -14,6 +14,8 @@ translateMode-dua = Bilingual mode
 translateMode-translation = Translation only
 
 translateModel-qwen = Qwen
+translateModel-kimi-qwen = Kimi + Qwen(Limited Test)
+translateModel-kimi-deepseek = Kimi + DeepSeek(Limited Test)
 translateModel-deepseek = DeepSeek
 translateModel-doubao = Doubao
 translateModel-glm-4-plus = GLM-4-Plus

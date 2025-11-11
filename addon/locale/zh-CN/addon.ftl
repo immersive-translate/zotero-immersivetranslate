@@ -14,6 +14,8 @@ translateMode-dua = 双语模式
 translateMode-translation = 仅译文
 
 translateModel-qwen = Qwen
+translateModel-kimi-qwen = Kimi + Qwen(限时测试)
+translateModel-kimi-deepseek = Kimi + DeepSeek(限时测试)
 translateModel-deepseek = DeepSeek
 translateModel-doubao = 豆包
 translateModel-glm-4-plus = 智谱 4 Plus
