@@ -1,7 +1,7 @@
 {
   "name": "zotero-immersivetranslate",
   "type": "module",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "Zotero BabelDOC plugin, for Immersive Translate Pro members.",
   "keywords": [
     "zotero",
