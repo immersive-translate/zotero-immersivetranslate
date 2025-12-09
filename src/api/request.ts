@@ -137,6 +137,11 @@ export async function request({
 
         // Don't retry for client-side errors (4xx)
         if (response.status >= 400 && response.status < 500) {
+          if (response.status === 434) {
+            // health check
+            const body = parseResult.success ? parseResult.data : {};
+            return { ...body, status: 434 };
+          }
           if (fullFillOnError) {
             return { error: lastError, status: response.status };
           }

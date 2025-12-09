@@ -73,11 +73,11 @@ export async function checkInternationalServerHealth(): Promise<{
       method: "GET",
       fullFillOnError: true,
     });
-
-    ztoolkit.log("Health Check Response:", response);
-
-    // 检查状态码是否是434
-    if (response.status === 434) {
+    ztoolkit.log(
+      "健康检查!!! International User Health Check Response:",
+      response,
+    );
+    if (response.status === 434 && response?.ext1 !== true) {
       return { success: true, status: response.status };
     } else {
       return { success: false, status: response.status };

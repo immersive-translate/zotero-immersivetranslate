@@ -20,7 +20,7 @@ export const SELF_SERVICE_COLLECT_URL_CN = `https://analytics.${HOST_NAME_CN}/co
 export const HEALTHCHECK_URL_TEST = `https://test-api2.${HOST_NAME}/connectivity_check`;
 export const HEALTHCHECK_URL = `https://api2.${HOST_NAME}/connectivity_check`;
 
-export const BEBELDOC_URL = `https://app.${HOST_NAME}/babel-doc/`;
+export const BEBELDOC_URL = `https://app.${HOST_NAME_CN}/babel-doc/`;
 
 export function getGMurls() {
   if (!NEW_GA_MEASUREMENT_ID || NEW_GA_MEASUREMENT_ID === "undefined") {

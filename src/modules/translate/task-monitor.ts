@@ -365,19 +365,12 @@ async function showNetworkIssueDialog() {
     // CN用户不需要进行健康检查, 或者已经有弹窗在显示中
     return;
   }
-  ztoolkit.log("国际用户下载失败，显示网络问题提示");
+  ztoolkit.log("国际用户下载超时，显示网络问题提示弹窗");
   isNetworkWarningShowing = true;
 
   try {
     const health = await addon.api.checkInternationalServerHealth();
-    if (health.success) {
-      await showConfirmDialog({
-        title: getString("network-connection-normal"),
-        message: getString("network-normal-retry-prompt", {
-          args: { status: health.status || 434 },
-        }),
-      });
-    } else {
+    if (!health.success) {
       await showConfirmDialog({
         title: getString("network-connection-issue"),
         message: getString("network-issue-prompt", {
