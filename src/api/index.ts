@@ -89,7 +89,7 @@ export async function checkInternationalServerHealth(): Promise<{
       "健康检查!!! International User Health Check Response:",
       response,
     );
-    if (response.status === 434 && response?.ext1 !== true) {
+    if (response.status === 434 && response?.data?.ext1 !== true) {
       return { success: true, status: response.status };
     } else {
       return { success: false, status: response.status };
