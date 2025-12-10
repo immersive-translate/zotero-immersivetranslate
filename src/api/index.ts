@@ -1,4 +1,5 @@
 import { request } from "./request";
+import { HEALTHCHECK_URL_TEST, HEALTHCHECK_URL } from "../utils/const";
 
 export function checkAuthKey(params: { apiKey: string }): Promise<boolean> {
   return request({
@@ -56,6 +57,35 @@ export function downloadPdf(url: string) {
     retries: 3,
     responseType: "arraybuffer",
   });
+}
+
+// 国际站用户健康检查API
+export async function checkInternationalServerHealth(): Promise<{
+  success: boolean;
+  status?: number;
+}> {
+  const isDev = addon.data.env === "development";
+  const healthCheckUrl = isDev ? HEALTHCHECK_URL_TEST : HEALTHCHECK_URL;
+
+  try {
+    const response = await request({
+      url: healthCheckUrl,
+      method: "GET",
+      fullFillOnError: true,
+    });
+    ztoolkit.log(
+      "健康检查!!! International User Health Check Response:",
+      response,
+    );
+    if (response.status === 434 && response?.data?.ext1 !== true) {
+      return { success: true, status: response.status };
+    } else {
+      return { success: false, status: response.status };
+    }
+  } catch (error) {
+    ztoolkit.log("Health Check Error:", error);
+    return { success: false };
+  }
 }
 
 type CreateTranslateTaskRequest = {
@@ -195,4 +225,5 @@ export default {
   getRecordList,
   uploadPdf,
   downloadPdf,
+  checkInternationalServerHealth,
 };

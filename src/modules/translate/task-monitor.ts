@@ -1,8 +1,15 @@
 import { TranslationTaskData } from "../../types";
 import { getPref } from "../../utils/prefs";
 import { updateTaskInList } from "./task-manager";
+import { checkIsCN } from "../../utils/cn";
+import { showConfirmDialog } from "../../utils/dialog";
+import { BEBELDOC_URL } from "../../utils/const";
+import { getString } from "../../utils/locale";
 
 const ATTR_TAG = "BabelDOC_translated";
+
+// 记录当前是否正在显示网络警告弹窗
+let isNetworkWarningShowing = false;
 
 // Add a task monitor singleton to track all translation tasks
 export const TranslationTaskMonitor = {
@@ -245,6 +252,12 @@ async function downloadTranslateResult({
       `ERROR: Failed download/process for PDF ID ${pdfId} (${taskData.attachmentFilename}):`,
       error.message || error,
     );
+    // 更新任务状态为下载失败
+    updateTaskInList(taskData.attachmentId, {
+      status: "failed",
+      stage: getString("download-failed"),
+      error: error.message || getString("download-failed"),
+    });
     throw error;
   }
 }
@@ -274,7 +287,19 @@ async function downloadAndProcessPdf({
     fileUrl,
   );
 
-  const fileBuffer = await addon.api.downloadPdf(fileUrl);
+  // 添加超时逻辑
+  const DOWNLOAD_TIMEOUT = 10000; // 10秒超时
+  const downloadPromise = addon.api.downloadPdf(fileUrl);
+  const timerId = setTimeout(() => {
+    ztoolkit.log(`下载超时10秒, 弹窗提示: ${taskData.attachmentFilename}`);
+    showNetworkIssueDialog(); // 弹窗提示
+  }, DOWNLOAD_TIMEOUT);
+  downloadPromise.finally(() => {
+    clearTimeout(timerId);
+  });
+
+  // 等待下载完成
+  const fileBuffer = await downloadPromise;
   ztoolkit.log(
     `File downloaded for ${taskData.attachmentFilename} (${mode}, Size: ${fileBuffer.byteLength})`,
   );
@@ -332,4 +357,33 @@ async function downloadAndProcessPdf({
   }
 
   return attachment;
+}
+
+// 显示网络问题提示弹窗
+async function showNetworkIssueDialog() {
+  if (checkIsCN() || isNetworkWarningShowing) {
+    // CN用户不需要进行健康检查, 或者已经有弹窗在显示中
+    return;
+  }
+  ztoolkit.log("国际用户下载超时，显示网络问题提示弹窗");
+  isNetworkWarningShowing = true;
+
+  try {
+    const health = await addon.api.checkInternationalServerHealth();
+    if (!health.success) {
+      await showConfirmDialog({
+        title: getString("network-connection-issue"),
+        message: getString("network-issue-prompt", {
+          args: {
+            check_network: getString("check-network-connection"),
+            web_service: getString("web-translation-service-description"),
+          },
+        }),
+        linkText: getString("visit-web-translation-service"),
+        linkUrl: BEBELDOC_URL,
+      });
+    }
+  } finally {
+    isNetworkWarningShowing = false;
+  }
 }

@@ -97,3 +97,11 @@ task-stage-completed = Translate completed
 
 task-retry-success = Task retry queued successfully
 task-retry-tip = Only failed tasks can be retried
+
+# Network and download related strings
+network-connection-issue = Download Overtime(Network connection issue)
+download-failed = Download failed
+check-network-connection = Check and change network environment
+visit-web-translation-service = Visit web translation service
+web-translation-service-description = Experience web translation feature
+network-issue-prompt = Network connection issue detected, current network environment may not be able to connect to the server. Solutions: 1. { $check_network } 2. Click link to { $web_service }:
