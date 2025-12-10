@@ -8,7 +8,7 @@ const OLD_GA_API_SECRET = __OLD_GA_API_SECRET__ || "";
 const NEW_GA_MEASUREMENT_ID = __NEW_GA_MEASUREMENT_ID__ || "";
 const NEW_GA_API_SECRET = __NEW_GA_API_SECRET__ || "";
 
-export const BASE_URL_TEST = `https://test-api2.${HOST_NAME}/zotero`;
+export const BASE_URL_TEST = `https://api2.${HOST_NAME}/zotero`;
 export const BASE_URL = `https://api2.${HOST_NAME}/zotero`;
 
 export const BASE_URL_TEST_CN = `https://test-api2.${HOST_NAME_CN}/zotero`;

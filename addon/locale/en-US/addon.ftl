@@ -99,11 +99,9 @@ task-retry-success = Task retry queued successfully
 task-retry-tip = Only failed tasks can be retried
 
 # Network and download related strings
-network-connection-normal = Download Overtime(Network connection normal)
 network-connection-issue = Download Overtime(Network connection issue)
 download-failed = Download failed
 check-network-connection = Check and change network environment
 visit-web-translation-service = Visit web translation service
 web-translation-service-description = Experience web translation feature
-network-normal-retry-prompt = Network connection detected as normal (status code: { $status }), download failure may be due to temporary network issues. Solutions: 1. Continue to wait for download 2. Retry translation
 network-issue-prompt = Network connection issue detected, current network environment may not be able to connect to the server. Solutions: 1. { $check_network } 2. Click link to { $web_service }:

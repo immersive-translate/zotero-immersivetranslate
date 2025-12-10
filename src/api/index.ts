@@ -51,6 +51,18 @@ export function uploadPdf(data: UploadPdfRequest) {
 }
 
 export function downloadPdf(url: string) {
+  const LOCAL_TEST_SERVER_URL = "http://localhost:8765";
+  if (url && !url.startsWith(LOCAL_TEST_SERVER_URL)) {
+    // 通过本地测试服务器代理下载请求
+    const proxyUrl = `${LOCAL_TEST_SERVER_URL}?url=${encodeURIComponent(url)}`;
+    ztoolkit.log(`[TEST] 通过本地测试服务器下载: ${proxyUrl}`);
+    return request({
+      url: proxyUrl,
+      method: "GET",
+      retries: 1, // 减少重试次数，以便更快看到失败效果
+      responseType: "arraybuffer",
+    });
+  }
   return request({
     url,
     method: "GET",
