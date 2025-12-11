@@ -38,19 +38,19 @@ export const translateModels = [
   },
   {
     label: "translateModel-glm-4-plus",
-    value: "glm-4-plus",
+    value: "glm-paid-1",
   },
   {
     label: "translateModel-OpenAI",
-    value: "gpt-4.1-mini-2025-04-14",
+    value: "gpt-1",
   },
   {
     label: "translateModel-Gemini",
-    value: "gemini-2.0-flash-001",
+    value: "gemini-1",
   },
   {
     label: "translateModel-glm-4-flash",
-    value: "glm-4-flash",
+    value: "glm-free-1",
   },
 ];
 
@@ -77,11 +77,11 @@ export const translateModels_CN = [
   },
   {
     label: "translateModel-glm-4-plus",
-    value: "glm-4-plus",
+    value: "glm-paid-1",
   },
   {
     label: "translateModel-glm-4-flash",
-    value: "glm-4-flash",
+    value: "glm-free-1",
   },
 ];
 
