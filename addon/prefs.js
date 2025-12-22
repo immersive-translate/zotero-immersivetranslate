@@ -14,3 +14,4 @@ pref("dualMode", "lort");
 pref("customSystemPrompt", "");
 pref("fakeUserId", "");
 pref("enableShortcuts", true);
+pref("layoutModel", "version_3");

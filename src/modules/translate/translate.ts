@@ -39,6 +39,7 @@ export async function translatePDF(
     primaryFontFamily: getPref("primaryFontFamily"),
     dual_mode: getPref("dualMode"),
     customSystemPrompt: getPref("customSystemPrompt") || null,
+    layout_model_id: getPref("layoutModel") || "version_3",
   });
 
   ztoolkit.log(

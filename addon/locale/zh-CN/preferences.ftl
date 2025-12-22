@@ -18,6 +18,7 @@ pref-translate-mode = 翻译模式
 pref-target-language = 目标语言
 pref-font-family = 字体
 pref-dual-mode = 双语对照显示方式
+pref-layout-model = 布局识别模型
 pref-test-button = 测试
 pref-enable-autoOpenPDF =
     .label = 自动打开翻译后的 PDF

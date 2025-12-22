@@ -18,7 +18,7 @@ translateModel-kimi-qwen = Kimi + Qwen(Limited Test)
 translateModel-kimi-deepseek = Kimi + DeepSeek(Limited Test)
 translateModel-deepseek = DeepSeek
 translateModel-doubao = Doubao
-translateModel-glm-4-plus = GLM-4-Plus
+translateModel-glm-4-plus = GLM 4.6
 translateModel-OpenAI = OpenAI
 translateModel-Gemini = Gemini
 translateModel-glm-4-flash = GLM-4-Flash
@@ -35,6 +35,9 @@ dual_mode_lort = Side-by-side: Original | Translation
 dual_mode_ltro = Side-by-side: Translation | Original
 dual_mode_uodt = Page Alternation: Original Text First
 dual_mode_utdo = Page Alternation: Translation First
+
+layoutModel-version-2 = Version 2
+layoutModel-version-3 = Version 3
 
 confirm-title = Translate Confirm
 confirm-options = Options

@@ -18,6 +18,7 @@ pref-translate-mode = Translation mode
 pref-target-language = Target language
 pref-font-family = Font family
 pref-dual-mode = Bilingual display mode
+pref-layout-model = Layout recognition model
 pref-test-button = Test
 pref-enable-autoOpenPDF =
     .label = Automatically open translated PDF

@@ -10,6 +10,7 @@ import {
   fontFamilyOptions,
   ocrWorkaroundOptions,
   translateModels_CN,
+  layoutModelOptions,
 } from "../config";
 import type { Language } from "./language/types";
 import { checkIsCN } from "../utils/cn";
@@ -272,6 +273,44 @@ function buildPrefsPane() {
       ],
     },
     doc.querySelector(`#${config.addonRef}-dual-mode-placeholder`)!,
+  );
+
+  ztoolkit.UI.replaceElement(
+    {
+      tag: "menulist",
+      id: `${config.addonRef}-layout-model`,
+      attributes: {
+        value: getPref("layoutModel") as string,
+        native: "true",
+      },
+      styles: {
+        maxWidth: "250px",
+      },
+      children: [
+        {
+          tag: "menupopup",
+          children: layoutModelOptions.map((item) => {
+            return {
+              tag: "menuitem",
+              attributes: {
+                label: getString(item.label),
+                value: item.value,
+              },
+            };
+          }),
+        },
+      ],
+      listeners: [
+        {
+          type: "command",
+          listener: (e: Event) => {
+            ztoolkit.log(e);
+            setPref("layoutModel", (e.target as XUL.MenuList).value);
+          },
+        },
+      ],
+    },
+    doc.querySelector(`#${config.addonRef}-layout-model-placeholder`)!,
   );
 }
 
