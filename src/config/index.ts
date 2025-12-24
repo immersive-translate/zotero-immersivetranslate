@@ -138,6 +138,17 @@ export const dualModeOptions = [
   },
 ];
 
+export const layoutModelOptions = [
+  {
+    label: "layoutModel-version-2",
+    value: "version_2",
+  },
+  {
+    label: "layoutModel-version-3",
+    value: "version_3",
+  },
+];
+
 export function getTranslateModelLabel(model: string) {
   const label = translateModels.find((m) => m.value === model)?.label;
   if (!label) {
@@ -164,6 +175,14 @@ export function getOcrWorkaroundLabel(val: string) {
 
 export function getDuaModeLabel(val: string) {
   const label = dualModeOptions.find((v) => v.value === val)?.label;
+  if (!label) {
+    return "";
+  }
+  return getString(label);
+}
+
+export function getLayoutModelLabel(val: string) {
+  const label = layoutModelOptions.find((v) => v.value === val)?.label;
   if (!label) {
     return "";
   }

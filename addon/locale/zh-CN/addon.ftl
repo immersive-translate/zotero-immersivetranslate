@@ -18,7 +18,7 @@ translateModel-kimi-qwen = Kimi + Qwen(限时测试)
 translateModel-kimi-deepseek = Kimi + DeepSeek(限时测试)
 translateModel-deepseek = DeepSeek
 translateModel-doubao = 豆包
-translateModel-glm-4-plus = 智谱 4 Plus
+translateModel-glm-4-plus = GLM 4.6
 translateModel-OpenAI = OpenAI
 translateModel-Gemini = Gemini
 translateModel-glm-4-flash = 智谱 4 Flash
@@ -35,6 +35,9 @@ dual_mode_lort = 左右对照：原文｜译文
 dual_mode_ltro = 左右对照：译文｜原文
 dual_mode_uodt = 页面交替：原文在前
 dual_mode_utdo = 页面交替：译文在前
+
+layoutModel-version-2 = 版本 2
+layoutModel-version-3 = 版本 3
 
 confirm-title = 翻译确认
 confirm-options = 选项

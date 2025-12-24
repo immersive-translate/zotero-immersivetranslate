@@ -116,6 +116,8 @@ type CreateTranslateTaskRequest = {
   dual_mode: string;
   // 自定义系统提示词
   customSystemPrompt: string | null;
+  // 布局模型ID
+  layout_model_id: string;
 };
 
 export function createTranslateTask(

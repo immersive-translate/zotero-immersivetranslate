@@ -22,6 +22,7 @@ declare namespace _ZoteroTypes {
       "customSystemPrompt": string;
       "fakeUserId": string;
       "enableShortcuts": boolean;
+      "layoutModel": string;
     };
   }
 }
