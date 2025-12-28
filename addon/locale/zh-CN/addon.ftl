@@ -103,9 +103,6 @@ task-retry-success = 重试任务已成功加入队列
 task-retry-tip = 只能重试失败的任务
 
 # Network and download related strings
-network-connection-issue = 下载超时(网络连接异常)
+network-slow-title = 当前网络访问较慢
+network-slow-message = 若您身处中国大陆，可以联系客服迁移至沉浸式翻译极速版并生成授权码，以获得更稳定的 Zotero 插件体验。
 download-failed = 下载失败
-check-network-connection = 检查并更换网络环境
-visit-web-translation-service = 访问网页版翻译服务
-web-translation-service-description = 体验网页版翻译功能
-network-issue-prompt = 检测到网络连接问题，当前网络环境可能无法连接到站点。解决方案: 1. { $check_network } 2. 点击链接{ $web_service }:

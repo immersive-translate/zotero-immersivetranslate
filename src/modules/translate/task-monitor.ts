@@ -2,8 +2,7 @@ import { TranslationTaskData } from "../../types";
 import { getPref } from "../../utils/prefs";
 import { updateTaskInList } from "./task-manager";
 import { checkIsCN } from "../../utils/cn";
-import { showConfirmDialog } from "../../utils/dialog";
-import { BEBELDOC_URL } from "../../utils/const";
+import { showDialog } from "../../utils/dialog";
 import { getString } from "../../utils/locale";
 
 const ATTR_TAG = "BabelDOC_translated";
@@ -371,16 +370,9 @@ async function showNetworkIssueDialog() {
   try {
     const health = await addon.api.checkInternationalServerHealth();
     if (!health.success) {
-      await showConfirmDialog({
-        title: getString("network-connection-issue"),
-        message: getString("network-issue-prompt", {
-          args: {
-            check_network: getString("check-network-connection"),
-            web_service: getString("web-translation-service-description"),
-          },
-        }),
-        linkText: getString("visit-web-translation-service"),
-        linkUrl: BEBELDOC_URL,
+      await showDialog({
+        title: getString("network-slow-title"),
+        message: getString("network-slow-message"),
       });
     }
   } finally {
