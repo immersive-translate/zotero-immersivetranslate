@@ -1,8 +1,7 @@
 import { TranslationTaskData } from "../../types";
-import { getPref } from "../../utils/prefs";
+import { getPref, setPref } from "../../utils/prefs";
 import { updateTaskInList } from "./task-manager";
 import { checkIsCN } from "../../utils/cn";
-import { showDialog } from "../../utils/dialog";
 import { getString } from "../../utils/locale";
 
 const ATTR_TAG = "BabelDOC_translated";
@@ -364,16 +363,48 @@ async function showNetworkIssueDialog() {
     // CN用户不需要进行健康检查, 或者已经有弹窗在显示中
     return;
   }
+  if (getPref("skipNetworkWarning")) {
+    return;
+  }
   ztoolkit.log("国际用户下载超时，显示网络问题提示弹窗");
   isNetworkWarningShowing = true;
 
   try {
     const health = await addon.api.checkInternationalServerHealth();
     if (!health.success) {
-      await showDialog({
-        title: getString("network-slow-title"),
-        message: getString("network-slow-message"),
-      });
+      const dialogData: { [key: string | number]: any } = {};
+      const dialogHelper = new ztoolkit.Dialog(3, 4)
+        .addCell(0, 0, {
+          tag: "h2",
+          properties: {
+            innerHTML: getString("network-slow-title"),
+          },
+          styles: {
+            width: "300px",
+          },
+        })
+        .addCell(1, 0, {
+          tag: "label",
+          namespace: "html",
+          properties: {
+            innerHTML: getString("network-slow-message"),
+          },
+          styles: {
+            width: "300px",
+          },
+        })
+        .addButton(getString("confirm-yes"), "confirm")
+        .addButton(getString("network-slow-dont-remind"), "dontRemind")
+        .setDialogData(dialogData)
+        .open(getString("network-slow-title"));
+
+      addon.data.dialog = dialogHelper;
+      await dialogData.unloadLock.promise;
+      addon.data.dialog = undefined;
+
+      if (addon.data.alive && dialogData._lastButtonId === "dontRemind") {
+        setPref("skipNetworkWarning", true);
+      }
     }
   } finally {
     isNetworkWarningShowing = false;

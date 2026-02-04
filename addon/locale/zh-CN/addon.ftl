@@ -105,4 +105,5 @@ task-retry-tip = 只能重试失败的任务
 # Network and download related strings
 network-slow-title = 当前网络访问较慢
 network-slow-message = 若您身处中国大陆，可以联系客服迁移至沉浸式翻译极速版并生成授权码，以获得更稳定的 Zotero 插件体验。
+network-slow-dont-remind = 不再提醒
 download-failed = 下载失败

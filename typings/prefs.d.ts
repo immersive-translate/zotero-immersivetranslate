@@ -23,6 +23,7 @@ declare namespace _ZoteroTypes {
       "fakeUserId": string;
       "enableShortcuts": boolean;
       "layoutModel": string;
+      "skipNetworkWarning": boolean;
     };
   }
 }

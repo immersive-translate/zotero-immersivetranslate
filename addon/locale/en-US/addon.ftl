@@ -104,4 +104,5 @@ task-retry-tip = Only failed tasks can be retried
 # Network and download related strings
 network-slow-title = Slow Network Access
 network-slow-message = If you are in mainland China, you can contact customer service to migrate to Immersive Translate Speed Edition and generate an authorization code for a more stable Zotero plugin experience.
+network-slow-dont-remind = Don't remind again
 download-failed = Download failed
